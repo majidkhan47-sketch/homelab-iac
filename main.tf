@@ -30,7 +30,7 @@ resource "proxmox_virtual_environment_vm" "test_vm" {
   }
 
   memory {
-    dedicated = 2048
+    dedicated = 3072
   }
 
   network_device {
