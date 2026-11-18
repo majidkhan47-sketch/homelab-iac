@@ -1,4 +1,8 @@
 terraform {
+  backend "local" {
+    path = "/var/tmp/tf-state/homelab.tfstate"
+  }
+
   required_providers {
     proxmox = {
       source  = "bpg/proxmox"
@@ -14,9 +18,9 @@ provider "proxmox" {
 }
 
 resource "proxmox_virtual_environment_vm" "test_vm" {
-  name      = "tf-test-vm-01"
-  node_name = "pve2"
-  vm_id     = 205
+  name            = "tf-test-vm-01"
+  node_name       = "pve2"
+  vm_id           = 205
   stop_on_destroy = true
 
   clone {
@@ -44,7 +48,7 @@ resource "proxmox_virtual_environment_vm" "test_vm" {
       }
     }
     user_account {
-      username = "maj"
+      username = "admin-ser"
       keys     = [trimspace(file("~/.ssh/id_ed25519.pub"))]
     }
   }
