@@ -29,7 +29,7 @@ resource "proxmox_virtual_environment_vm" "test_vm" {
   }
 
   cpu {
-    cores = 3
+    cores = 2
     type  = "host"
   }
 
@@ -48,7 +48,7 @@ resource "proxmox_virtual_environment_vm" "test_vm" {
       }
     }
     user_account {
-      username = "admin-ser"
+      username = "maj"
       keys     = [trimspace(file("~/.ssh/id_ed25519.pub"))]
     }
   }
