@@ -29,7 +29,7 @@ resource "proxmox_virtual_environment_vm" "test_vm" {
   }
 
   cpu {
-    cores = 2
+    cores = 3
     type  = "host"
   }
 
